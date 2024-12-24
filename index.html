@@ -54,6 +54,33 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<style>
+		.blur-background {
+			position: relative;
+			overflow: hidden; /* Ensure the pseudo-element doesn't overflow the li */
+		}
+		
+		.blur-background::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url('images/test.jpg');
+			background-size: cover;
+			background-position: center;
+			z-index: -1; /* Place the pseudo-element behind the content */
+			filter: blur(5px); /* Apply blur to the background */
+		}
+		
+		.blur-background > * {
+			position: relative;
+			z-index: 1; /* Ensure the content stays on top of the background */
+		}
+		
+	</style>
+
 	</head>
 	<body>
 	<div id="colorlib-page">
@@ -96,22 +123,22 @@ Copyright <script>document.write(new Date().getFullYear());</script> All rights 
 			<section id="colorlib-hero" class="js-fullheight" data-section="home">
 				<div class="flexslider js-fullheight">
 					<ul class="slides">
-				   	<li style="background-image: url(images/img_bg_1.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-					   				<div class="slider-text-inner js-fullheight">
-										<div class="desc">
-											<h1  style="color:cadetblue;">Hi! <br>I'm <br> Kholod</h1>
-											<h2 style="font-style: oblique;">Innovative and Driven <br>Full-Stack Developer</h2>
-											<p ><a  style="color: cadetblue;" href="pieces/resume.pdf" target="_blank" class="btn btn-primary btn-learn">View Resume <i class="icon-download4"></i></a></p>
-										</div>										
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
+						<li class="blur-background">
+							<div class="overlay"></div>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+										<div class="slider-text-inner js-fullheight">
+											<div class="desc">
+												<h1 style="color:white;">Hi! <br>I'm <br> Kholod</h1>
+												<h2 style="font-style: oblique; color:white;">Innovative and Driven <br>Full-Stack Developer</h2>
+												<p><a style="color: white;" href="pieces/resume.pdf" target="_blank" class="btn btn-primary btn-learn">View Resume <i class="icon-download4"></i></a></p>
+											</div>										
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
 				   	<li style="background-image: url(images/img_bg_2.jpg);">
 				   		<div class="overlay"></div>
 				   		<div class="container-fluid">
